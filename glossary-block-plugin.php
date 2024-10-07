@@ -1,6 +1,7 @@
 <?php
 /*
 Plugin Name: Glossary of Terms
+GitHub Plugin URI: https://github.com/InsafInhaam/ekwa-glossary-block-plugin
 Description: A glossary plugin for displaying dermatology terms.
 Version: 1.0
 Author: Insaf Inhaam
