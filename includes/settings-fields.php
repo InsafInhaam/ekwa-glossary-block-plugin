@@ -6,6 +6,7 @@ function glossary_register_settings()
     register_setting('glossary_settings_group', 'glossary_sheet_id');
     register_setting('glossary_settings_group', 'glossary_sheet_name');
     register_setting('glossary_settings_group', 'glossary_sheet_range');
+    register_setting('glossary_settings_group', 'glossary_custom_css');  // New custom CSS field
 
     add_settings_section(
         'glossary_settings_section',  // Section ID
@@ -49,6 +50,15 @@ function glossary_register_settings()
         'glossary-settings',
         'glossary_settings_section'
     );
+
+    // Custom CSS textarea field
+    add_settings_field(
+        'glossary_custom_css',            // ID
+        'Custom CSS',                     // Title
+        'glossary_custom_css_callback',   // Callback
+        'glossary-settings',              // Page
+        'glossary_settings_section'       // Section
+    );
 }
 add_action('admin_init', 'glossary_register_settings');
 
@@ -79,6 +89,13 @@ function glossary_sheet_range_callback()
 {
     $sheet_range = get_option('glossary_sheet_range');
     echo '<input type="text" name="glossary_sheet_range" value="' . esc_attr($sheet_range) . '" size="50">';
+}
+
+// Callback to display Custom CSS textarea
+function glossary_custom_css_callback()
+{
+    $custom_css = get_option('glossary_custom_css');
+    echo '<textarea name="glossary_custom_css" rows="10" cols="50">' . esc_textarea($custom_css) . '</textarea>';
 }
 
 // Display content for Glossary Settings page
