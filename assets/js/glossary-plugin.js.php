@@ -54,7 +54,7 @@ $api_url = "https://sheets.googleapis.com/v4/spreadsheets/$sheet_id/values/$shee
       filteredData.forEach(item => {
         const li = document.createElement("li");
         li.className = "GlossaryItem";
-        li.innerHTML = `<h3>${item.title}</h3><p>${item.excerpt}</p>`;
+        li.innerHTML = `<h3>${item.title}</h3><div class="GlossaryItem-para"><p>${item.excerpt}</p></div>`;
         glossaryList.appendChild(li);
       });
     }
